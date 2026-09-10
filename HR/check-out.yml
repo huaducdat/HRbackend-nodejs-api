@@ -1,0 +1,18 @@
+info:
+  name: check-out
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:5001/api/attendances/check-out
+  auth:
+    type: bearer
+    token: POST http://localhost:5000/api/attendances/check-out
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+​

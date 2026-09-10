@@ -1,0 +1,26 @@
+info:
+  name: create-leave
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:5001/api/leaves
+  body:
+    type: json
+    data: |-
+      {
+        "leaveType": "annual",
+        "startDate": "2026-09-15",
+        "endDate": "2026-09-17",
+        "reason": "Việc gia đình"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YWEwMDM0ZDY4OWQwYmRkMGVjYzRmNWQiLCJlbWFpbCI6Im5ndXllbnZhbmFAZXhhbXBsZS5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NzE5MDgsImV4cCI6MTc4OTQ3NjcwOH0._CCm8oAQKw_sAIY_pA4etZ6em4k-JNmZ8bbsjQD-EQ8
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

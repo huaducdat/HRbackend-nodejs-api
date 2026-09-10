@@ -1,0 +1,35 @@
+info:
+  name: create_employee
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:5001/api/employees
+  body:
+    type: json
+    data: |-
+      {
+        "employeeCode": "NV001",
+        "fullName": "Nguyễn Văn An",
+        "email": "nguyenvanan@example.com",
+        "phone": "0912345678",
+        "gender": "male",
+        "dateOfBirth": "1998-05-10",
+        "address": "Hà Nội",
+        "departmentId": "6aa00bc4d31d47d8895a1077",
+        "positionId": "6aa00bc4d31d47d8895a1078",
+        "managerId": null,
+        "salary": 15000000,
+        "startDate": "2026-09-08",
+        "status": "active"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YWEwMDM0ZDY4OWQwYmRkMGVjYzRmNWQiLCJlbWFpbCI6Im5ndXllbnZhbmFAZXhhbXBsZS5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NzE5MDgsImV4cCI6MTc4OTQ3NjcwOH0._CCm8oAQKw_sAIY_pA4etZ6em4k-JNmZ8bbsjQD-EQ8
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
