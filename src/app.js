@@ -13,6 +13,9 @@ const errorMiddleware = require("./middlewares/error.middleware");
 
 const app = express();
 
+const profileRoutes = require("./routes/profile.routes");
+const statisticRoutes = require("./routes/statistic.routes");
+
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
@@ -30,6 +33,9 @@ app.use("/api/positions", positionRoutes);
 app.use("/api/employees", employeeRoutes);
 app.use("/api/attendances", attendanceRoutes);
 app.use("/api/leaves", leaveRoutes);
+
+app.use("/api/profile", profileRoutes);
+app.use("/api/statistics", statisticRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Route not found");

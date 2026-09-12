@@ -3,10 +3,12 @@ const express = require("express");
 const {
   getEmployees,
   getEmployeeById,
-  getMyEmployee,
   createEmployee,
   updateEmployee,
-  deleteEmployee
+  deleteEmployee,
+  getEmployeeBirthdays,
+  getProbationEnding,
+  exportEmployees
 } = require("../controllers/employee.controller");
 
 const authMiddleware = require("../middlewares/auth.middleware");
@@ -16,28 +18,41 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
+// Route cụ thể phải đặt trước /:id
+router.get(
+  "/birthdays",
+  allowRoles("admin", "hr"),
+  getEmployeeBirthdays
+);
+
+router.get(
+  "/probation-ending",
+  allowRoles("admin", "hr"),
+  getProbationEnding
+);
+
+router.get(
+  "/export",
+  allowRoles("admin", "hr"),
+  exportEmployees
+);
+
 router.get(
   "/",
   allowRoles("admin", "hr", "staff"),
   getEmployees
 );
 
-router.get(
-  "/me",
-  allowRoles("admin", "hr", "staff"),
-  getMyEmployee
+router.post(
+  "/",
+  allowRoles("admin", "hr"),
+  createEmployee
 );
 
 router.get(
   "/:id",
   allowRoles("admin", "hr", "staff"),
   getEmployeeById
-);
-
-router.post(
-  "/",
-  allowRoles("admin", "hr"),
-  createEmployee
 );
 
 router.put(

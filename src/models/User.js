@@ -48,7 +48,24 @@ const userSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "Employee",
             default: null
-        }
+        },
+        phone: {
+            type: String,
+            trim: true,
+            default: ""
+        },
+
+        address: {
+            type: String,
+            trim: true,
+            default: ""
+        },
+
+        avatarUrl: {
+            type: String,
+            trim: true,
+            default: ""
+        },
     },
     {
         timestamps: true
